@@ -4,3 +4,4 @@ __pycache__/
 .env
 static/uploads/*
 !static/uploads/kexj8b.jpg
+main.pyw
