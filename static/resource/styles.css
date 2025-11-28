@@ -1,0 +1,72 @@
+body {
+    background-color: #f7f9fe;
+    font-family: 'Roboto';
+    position: relative; 
+}
+
+
+h1 {
+    font-size: 56px;
+}
+
+p, a{
+    font-size: 22px;
+
+}
+
+input[type="file"]::file-selector-button, input[type="file"]::-webkit-file-upload-button{
+    display: none;
+}
+
+
+.dropzone {
+    width: clamp(20vw, 50vw, 75vw);
+    height: clamp(20vh, 30vh, 31vh);
+    border: 5px dashed #000000;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    position: relative;
+
+    /* center */
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+#file{
+    width: 100%;
+    height: 100%;
+    opacity: 0%;
+    position: absolute;
+    cursor: pointer;
+
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+#submit {
+    display: none;
+    width: 230px;
+    height: 100px;
+    background-color: #FFFFFF;
+    border: 5px solid #000000;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 10%;
+    position: absolute;
+
+    /* center  */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dropzoneContent {
+    color: #000000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}

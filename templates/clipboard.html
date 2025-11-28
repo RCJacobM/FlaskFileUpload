@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/resource/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clipboard</title>
+</head>
+<body>
+    <div class="textAbove">
+        <h1>{{text}}</h1>
+        <a href="/">Home</a>
+    </div>
+
+    <form id="form" action="/clipboard" method="POST" enctype="multipart/form-data">
+        {{form.hidden_tag()}}
+        {{form.text()}}
+        {{form.submit()}}
+    </form>
+</body>
+</html>

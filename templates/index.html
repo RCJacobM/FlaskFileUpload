@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/resource/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>huhhhhhh</title>
+    <style>
+    body {
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <h1>{{msg}}</h1>
+    <a href="/clipboard">clipboard</a><br>
+<div class="dropzone">
+    <form id="form" action="/" method="POST" enctype="multipart/form-data">
+        {{form.hidden_tag()}}
+        {{form.file()}}
+    </form>
+
+    <div class="dropzoneContent">
+        <b><p id="filename">Select or drop any file here</p></b>
+    </div>
+</div>
+
+<button id="submit">Upload!</button>
+
+<script src="/static/resource/upload.js"></script>  
+<script>
+    fileinput.addEventListener("change", () => {
+        filename.textContent = fileinput.files[0].name
+        submit.style = "display: block;"
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="/static/resource/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload complete!</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+{% if code == "NOFILE" %}
+    <h1>No file submitted</h1>
+    <br><a href="/">Upload another file</a>
+{% elif code == "EXCEED" %}
+    <h1>File size exceeded 2GBs</h1>
+{% else %}
+
+<h1>hiiiii</h1>
+<a href="/">Home</a><br>
+
+<div class="dropzone" style="width: 560px; height: 300px;">
+    <form  id="form" action="/" method="POST" enctype="multipart/form-data">
+        {{form.hidden_tag()}}
+        {{form.file()}}
+    </form>
+    <div class="dropzoneContent">
+        <p id="filename">{{link}}</p>
+        <img src="{{qrRes}}" alt="">
+    </div>
+</div>
+
+<button id="submit">Upload!</button>
+
+{% endif %}
+<script src="/static/resource/upload.js"></script>
+<script>
+    if ( window.history.replaceState ) { // Prevents form resubmition on reload
+            window.history.replaceState( null, null, window.location.href );
+    }
+    const dropzoneContent = document.getElementsByClassName("dropzoneContent")[0]
+    fileinput.addEventListener("change", () => {
+        submit.style = "display: block;"
+        dropzoneContent.children[1].style = "display: none;"
+        filename.textContent = fileinput.files[0].name
+        filename.style = "font-weight: bold"
+    })
+    const link = "{{link}}"
+</script>
+
+</body>
+</html>
