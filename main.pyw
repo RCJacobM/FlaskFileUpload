@@ -12,13 +12,15 @@ import subprocess
 import logging
 import socket
 import hashlib
+from dotenv import load_dotenv
 
 from filename import createFilename
 from splash import message
 
+load_dotenv()
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "VeryMuchASecretThatNoOneWillEverKnowAbout"
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 app.config["upload_folder"] = os.path.join(app.root_path, "static", "uploads")
 app.config["resource_folder"] = os.path.join(app.root_path, "static", "resource")
 app.config["splash_message_file"] = os.path.join(app.config["resource_folder"], "messages.json")
@@ -32,7 +34,6 @@ class UploadForm(FlaskForm):
 
 @app.route("/", methods=["GET", "POST"])
 def home():
-
     form = UploadForm()
 
     if form.validate_on_submit():
@@ -84,7 +85,6 @@ def clipboard():
         subprocess.run("clip", text=True, input=text)
         return render_template("clipboard.html", form=form, text=texts[-1])
     
-
     # if request.method == "POST":
     #     text = request.form.get("text")
     #     subprocess.run("clip", text=True, input=text)
@@ -93,7 +93,6 @@ def clipboard():
 
 # if __name__ == "__main__":
 #     app.run(debug=True, host="0.0.0.0", port=8080)
-
 
 host = socket.gethostbyname(socket.gethostname())
 if __name__ == "__main__":
