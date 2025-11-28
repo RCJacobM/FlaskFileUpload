@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 .env
 static/uploads/*
+!static/uploads/kexj8b.jpg
