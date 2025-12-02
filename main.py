@@ -13,7 +13,6 @@ import subprocess
 import os
 import base64
 import hashlib
-import sqlite3
 from filename import createFilename
 from splash import message
 
