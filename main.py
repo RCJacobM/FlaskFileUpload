@@ -45,10 +45,10 @@ def home():
             if not chunk:
                 break
             hasher.update(chunk)
-        hex = hasher.hexdigest()
+        hashed = hasher.hexdigest()
         file.stream.seek(0)
         try:
-            newFilename = createFilename(file.filename, hex)
+            newFilename = createFilename(file.filename, hashed)
             file.save(os.path.join(app.config["upload_folder"], secure_filename(newFilename)))
         except:
             return render_template(app.config["respage"], code="NOFILE"), 400 # ERR | No file submitted
