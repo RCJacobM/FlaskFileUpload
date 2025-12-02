@@ -46,7 +46,6 @@ input[type="file"]::file-selector-button, input[type="file"]::-webkit-file-uploa
 
 
 #submit {
-    display: none;
     width: 230px;
     height: 100px;
     background-color: #FFFFFF;

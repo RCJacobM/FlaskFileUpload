@@ -30,6 +30,7 @@
 
 <script src="/static/resource/upload.js"></script>  
 <script>
+    submit.style = "display: none;"
     fileinput.addEventListener("change", () => {
         filename.textContent = fileinput.files[0].name
         submit.style = "display: block;"
